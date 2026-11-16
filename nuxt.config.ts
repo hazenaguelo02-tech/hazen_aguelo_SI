@@ -1,5 +1,7 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+
 export default defineNuxtConfig({
+  ssr: false, // <-- Idagdag ito
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   build: {
@@ -15,12 +17,10 @@ export default defineNuxtConfig({
       },
     },
   },
-
   runtimeConfig: {
- public: {
-  //@ts-ignore
- googleClientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID
- }
- }
-
+    public: {
+      //@ts-ignore
+      googleClientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID
+    }
+  }
 })
